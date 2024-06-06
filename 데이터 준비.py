@@ -38,3 +38,27 @@ all_files_data_concat.to_csv('c:/Users/gnlrj/Desktop/My_Python/8장_data/riss_bi
 all_title = all_files_data_concat['제목']
 
 all_title #출력하여 내용 확인
+#--------------------------------------------------------
+stopWords = set(stopwords.words("english"))
+lemma = WordNetLemmatizer()
+
+
+
+words = []  
+
+for title in all_title:
+    EnWords = re.sub(r"[^a-zA-Z]+", " ", str(title))    
+    EnWordsToken = word_tokenize(EnWords.lower())
+    EnWordsTokenStop = [w for w in EnWordsToken if w not in stopWords]
+    EnWordsTokenStopLemma = [lemma.lemmatize(w) for w in EnWordsTokenStop]
+    words.append(EnWordsTokenStopLemma)
+
+
+
+    print(words)  #출력하여 내용 확인. 크기가 너무 커서 기다려야함 멈춤
+
+    words2 = list(reduce(lambda x, y: x+y,words))
+    print(words2)  #작업 내용 확인
+
+
+    #데이터 탐색
