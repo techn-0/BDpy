@@ -1,0 +1,2 @@
+!pip install matplotlib  #최초 한번만 설치:Anaconda에 설치됨
+!pip install wordcloud  #최초 한번만 설치:Anaconda에 설치됨
